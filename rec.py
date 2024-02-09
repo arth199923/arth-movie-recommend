@@ -37,10 +37,10 @@ def recommend(movie):
 
         
         
-movies_dict=pickle.load(open('D:/Alabs/TERM2.2_ML/ML case studies/movie_small/movie_dict.pkl','rb'))
+movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 
-similarity=pickle.load(open('D:/Alabs/TERM2.2_ML/ML case studies/movie_small/similarity.pkl','rb'))
+similarity=pickle.load(open('similarity.pkl','rb'))
 
 
 
