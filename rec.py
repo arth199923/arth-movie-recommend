@@ -30,6 +30,14 @@ def recommend_by_title(movie):
 movies_dict = pickle.load(open('movie_dict.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 
+# Check if 'genres' column exists in the DataFrame, if not, load genre information separately
+if 'genres' not in movies.columns:
+    # Load genre information from another source or file
+    # Assuming genres are stored as a list in the 'genres' column in the DataFrame
+    # Update movies_dict to include 'genres' information
+    # Example: movies_dict = { 'title': ['Movie 1', 'Movie 2', ...], 'genres': [['Action', 'Adventure'], ['Comedy'], ...] }
+    pass
+
 similarity = pickle.load(open('similarity.pkl','rb'))
 
 st.title('Movie Recommendation System')
