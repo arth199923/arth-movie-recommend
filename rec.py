@@ -41,7 +41,7 @@ st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='font-size: 48px;'>ArthFlix</h1>
-        <h2 style='font-size: 24px;'>🎬 Discover Your Next Favorite Movie! by Arth</h2>
+        <h2 style='font-size: 24px;'>🎬 Discover Your Next Favorite Movie!</h2>
     </div>
     """,
     unsafe_allow_html=True
