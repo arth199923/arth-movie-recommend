@@ -4,6 +4,7 @@ import pandas as pd
 import requests
 
 # Function to fetch movie details from API
+# Function to fetch movie details from API
 def fetch_movie_details(movie_id):
     response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=f0876dce92dd28505b9ec945cb32c688')
     data = response.json()
@@ -15,12 +16,6 @@ def fetch_movie_details(movie_id):
         'genres': [genre['name'] for genre in data['genres']],
         'vote_average': data['vote_average']
     }
-
-# Function to fetch movie poster
-def fetch_poster(movie_id):
-    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=f0876dce92dd28505b9ec945cb32c688')
-    data = response.json()    
-    return f"https://image.tmdb.org/t/p/original/{data['poster_path']}"
 
 # Function to recommend similar movies
 def recommend(movie):
@@ -42,21 +37,22 @@ movies_dict = pickle.load(open('movie_dict.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 similarity = pickle.load(open('similarity.pkl','rb'))
 
-# Set app title
-st.title('🎬 Discover Your Next Favorite Movie! by Arth')
-
 # Set background image
 st.markdown(
     """
     <style>
-    .reportview-container {
-        background: url('background.jpg');
+    body {
+        background-image: url('background.jpg');
         background-size: cover;
+        background-position: center;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
+# Set app title
+st.title('🎬 Discover Your Next Favorite Movie! by Arth')
 
 # Select a movie from the dropdown
 selected_movie_name = st.selectbox(
