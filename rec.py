@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import requests
 
-# Function to fetch movie details from TMDb API
+# Function to fetch movie details from API
 def fetch_movie_details(movie_id):
     response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=f0876dce92dd28505b9ec945cb32c688')
     data = response.json()
@@ -15,12 +15,6 @@ def fetch_movie_details(movie_id):
         'genres': [genre['name'] for genre in data['genres']],
         'vote_average': data['vote_average']
     }
-
-# Function to fetch movie poster from TMDb API
-def fetch_poster(movie_id):
-    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=f0876dce92dd28505b9ec945cb32c688')
-    data = response.json()    
-    return f"https://image.tmdb.org/t/p/original/{data['poster_path']}"
 
 # Function to recommend similar movies
 def recommend(movie):
@@ -40,24 +34,39 @@ def recommend(movie):
 # Load movie data and similarity matrix
 movies_dict = pickle.load(open('movie_dict.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
-
 similarity = pickle.load(open('similarity.pkl','rb'))
 
-# Set up Streamlit app title
-st.markdown('## ArthFlix')
-st.title('🎬 Discover Your Next Favorite Movie! by Arth')
+# Set app title
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <h1 style='font-size: 48px;'>ArthFlix</h1>
+        <h2 style='font-size: 24px;'>🎬 Discover Your Next Favorite Movie! by Arth</h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-# Note for users regarding API key usage
-st.markdown("""
-    **Note:** If you encounter issues with the application, it could be due to the usage of a freely available API key, which may have reached its usage limit.
-""")
+# Set background image using HTML
+st.markdown(
+    """
+    <style>
+    body {
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Dropdown to select a movie
+# Select a movie from the dropdown
 selected_movie_name = st.selectbox(
     'Find the perfect movie for your mood! Select one from the list below:',
     movies['title'].values)
 
-# Button to trigger recommendation
+# Button to trigger recommendations
 if st.button('Recommend'):
     st.markdown('## Recommendations')
     names, details = recommend(selected_movie_name)
