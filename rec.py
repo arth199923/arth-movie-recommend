@@ -47,12 +47,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Set background color to light blue using HTML
+# Set background image using HTML
 st.markdown(
     """
     <style>
     body {
-        background-color: #e6f2ff; /* light blue color */
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
     }
     </style>
     """,
