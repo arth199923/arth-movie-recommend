@@ -66,6 +66,11 @@ selected_movie_name = st.selectbox(
     'Find the perfect movie for your mood! Select one from the list below:',
     movies['title'].values)
 
+st.markdown("""
+        **Note:** If you encounter issues with the application
+        ,it could be due to the usage of a freely available API key, which may have reached its usage limit.
+    """)
+
 # Button to trigger recommendations
 if st.button('Recommend'):
     st.markdown('## Recommendations')
