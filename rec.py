@@ -44,6 +44,7 @@ movies = pd.DataFrame(movies_dict)
 similarity = pickle.load(open('similarity.pkl','rb'))
 
 # Set up Streamlit app title
+st.markdown('## ArthFlix')
 st.title('🎬 Discover Your Next Favorite Movie! by Arth')
 
 # Note for users regarding API key usage
