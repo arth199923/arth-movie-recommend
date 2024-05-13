@@ -21,7 +21,7 @@ def recommend(movie):
     movie_index = movies[movies['title'] == movie].index[0]
     distances = similarity[movie_index]
     movie_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:6]
-    
+
     recommend_movies = []
     recommend_movie_details = []
     for i in movie_list:
@@ -41,7 +41,7 @@ st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='font-size: 48px;'>Filmy Rex</h1>
-        <h2 style='font-size: 24px;'>🎬 Discover Your Next Favorite Movie!</h2>
+        <h2 style='font-size: 24px;'>ð¬ Discover Your Next Favorite Movie!</h2>
     </div>
     """,
     unsafe_allow_html=True
