@@ -40,7 +40,7 @@ similarity = pickle.load(open('similarity.pkl','rb'))
 st.markdown(
     """
     <div style='text-align: center;'>
-        <h1 style='font-size: 48px;'>ArthFlix</h1>
+        <h1 style='font-size: 48px;'>Filmy Rex</h1>
         <h2 style='font-size: 24px;'>🎬 Discover Your Next Favorite Movie!</h2>
     </div>
     """,
