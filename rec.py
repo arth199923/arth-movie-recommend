@@ -36,12 +36,13 @@ movies_dict = pickle.load(open('movie_dict.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 similarity = pickle.load(open('similarity.pkl','rb'))
 
-# Set app title
+# Set app title and crafted byline
 st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='font-size: 48px;'>Filmy Rex</h1>
-        <h2 style='font-size: 24px;'>ð¬ Discover Your Next Favorite Movie!</h2>
+        <h3 style='font-size: 18px;'>Crafted by Arth</h3>
+        <h2 style='font-size: 24px;'>🎬 Discover Your Next Favorite Movie!</h2>
     </div>
     """,
     unsafe_allow_html=True
