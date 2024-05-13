@@ -1,8 +1,8 @@
-# ArthFlix
+# Filmy Rex
 
 ## Introduction
 
-ArthFlix is a movie recommendation app that helps users discover their next favorite movie based on their mood. This README provides information on how to set up and run the app locally
+Filmy Rex is a movie recommendation app that helps users discover their next favorite movie based on their mood. This README provides information on how to set up and run the app locally
 
 ## Features
 
